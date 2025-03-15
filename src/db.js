@@ -1,6 +1,5 @@
 import pg from "pg";
-
-const { USER, HOST, PASSWORD, DATABASE, PORT_DB } = process.env;
+import { DATABASE, HOST, PASSWORD, PORT_DB, USER } from "./config.js";
 
 export const pool = new pg.Pool({
   user: USER,
