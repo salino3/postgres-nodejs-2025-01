@@ -1,31 +1,22 @@
 import { Router } from "express";
-import { pool } from "../db.js";
+import {
+  createUser,
+  deleteuser,
+  getUser,
+  getUsers,
+  updateUser,
+} from "../controllers/users.controllers.js";
 
 const router = Router();
 
-router.get("/users", (req, res) => {
-  res.send("Users call");
-});
+router.get("/users", getUsers);
 
-router.get("/users/:id", (req, res) => {
-  const { id } = req.params;
-  res.send("User call " + id);
-});
+router.get("/users/:id", getUser);
 
-router.post("/users", (req, res) => {
-  res.send("Create User");
-});
+router.post("/users", createUser);
 
-router.delete("/users/:id", (req, res) => {
-  const { id } = req.params;
+router.delete("/users/:id", deleteuser);
 
-  res.send("Delete User call " + id);
-});
-
-router.put("/users/:id", (req, res) => {
-  const { id } = req.params;
-
-  res.send("Update Users call " + id);
-});
+router.put("/users/:id", updateUser);
 
 export default router;
